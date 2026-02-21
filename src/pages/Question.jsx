@@ -42,7 +42,7 @@ export const Question = () => {
         {loading ? (
           <p className="text-subtext">Loading questions...</p>
         ) : (
-          questions.map((q) => (
+          questions.slice(0, 3).map((q) => (
             <QuestionCard key={q.id} question={q} />
           ))
         )}
