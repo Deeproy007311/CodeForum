@@ -3,8 +3,8 @@ import { Home } from "./pages/Home";
 import { AppLayout } from "./components/layout/AppLayout";
 import { Ask } from "./pages/Ask";
 import { Tags } from "./pages/Tags";
-import { QuestionDetails } from "./components/questions/QuestionDetails";
 import { TagDetails } from "./components/tags/TagDetails";
+import { QuestionDetails } from "./pages/QuestionDetails";
 
 const App = () => {
   const router = createBrowserRouter([
