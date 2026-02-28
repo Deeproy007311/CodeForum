@@ -2,6 +2,7 @@ import { PopularTags } from "../components/tags/PopularTags"
 import { Hero } from "../components/UI/HeroSection"
 
 import { Question } from "./Question"
+import { TopContributors } from "./TopContributors"
 
 export const Home = () => {
     return (
@@ -9,6 +10,7 @@ export const Home = () => {
             <Hero />
             <Question />
             <PopularTags />
+            <TopContributors />
         </div>
     )
 }

@@ -13,19 +13,20 @@ export const TagCard = ({ tag }) => {
         className="relative group block bg-panel/80 backdrop-blur border border-line rounded-2xl overflow-hidden hover:border-accent/60 transition duration-300 h-full"
       >
 
-        {/* 🔥 Trending badge (FIXED) */}
+        {/* 🔥 Trending Badge (FIXED + GLOW) */}
         {tag.trending && (
-          <div className="absolute top-3 right-3 text-[11px] px-2 py-1 rounded-md bg-accent/20 text-accent font-medium backdrop-blur">
+          <div className="absolute top-3 right-3 z-20 text-[11px] px-2 py-1 rounded-md bg-accent/30 border border-accent/40 text-accent font-medium backdrop-blur shadow-lg shadow-accent/20">
             🔥 Trending
           </div>
         )}
 
-        {/* ✨ Top visual area */}
-        <div className="relative h-40 bg-gradient-to-br from-accent/20 via-accent/5 to-transparent flex items-center justify-center p-6 overflow-hidden">
+        {/* ✨ Top Visual Area */}
+        <div className="relative z-0 h-40 bg-gradient-to-br from-accent/20 via-accent/5 to-transparent flex items-center justify-center p-6 overflow-hidden">
 
-          {/* glow effect */}
+          {/* Glow effect */}
           <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition duration-500 bg-accent/10 blur-2xl"></div>
 
+          {/* Image */}
           <img
             src={tag.image}
             alt={tag.name}
@@ -49,10 +50,12 @@ export const TagCard = ({ tag }) => {
           {/* Footer */}
           <div className="mt-auto pt-5 flex items-center justify-between text-xs text-subtext">
 
+            {/* Category */}
             <span className="capitalize bg-soft px-3 py-1 rounded-md group-hover:bg-accent/20 group-hover:text-accent transition">
               {tag.category}
             </span>
 
+            {/* Count */}
             <span className="group-hover:text-text transition">
               {tag.count} questions
             </span>

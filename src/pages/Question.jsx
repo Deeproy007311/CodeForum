@@ -73,7 +73,7 @@ export const Question = () => {
 
           {/* View all */}
           <Link
-            to="/questions"
+            to="/tags"
             className="text-sm text-accent hover:underline"
           >
             View All →
