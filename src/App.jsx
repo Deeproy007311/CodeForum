@@ -5,6 +5,7 @@ import { Ask } from "./pages/Ask";
 import { Tags } from "./pages/Tags";
 import { TagDetails } from "./components/tags/TagDetails";
 import { QuestionDetails } from "./pages/QuestionDetails";
+import { Profile } from "./pages/Profile";
 
 const App = () => {
   const router = createBrowserRouter([
@@ -32,6 +33,10 @@ const App = () => {
           path: "tag/:slug",
           element: <TagDetails />
 
+        },
+        {
+          path: "profile",
+          element: <Profile />
         }
       ]
     }

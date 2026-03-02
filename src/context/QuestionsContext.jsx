@@ -44,9 +44,44 @@ export const QuestionsProvider = ({ children }) => {
             ...prev // newest on top
         ]);
     };
+    const voteQuestion = (id, type) => {
+        setQuestions(prev =>
+            prev.map(q => {
+                if (q.id === Number(id)) {
+                    return {
+                        ...q,
+                        votes: type === "up" ? q.votes + 1 : q.votes - 1
+                    };
+                }
+                return q;
+            })
+        );
+    };
+
+    const voteAnswer = (questionId, answerId, type) => {
+        setQuestions(prev =>
+            prev.map(q => {
+                if (q.id === Number(questionId)) {
+                    return {
+                        ...q,
+                        answers: q.answers.map(a => {
+                            if (a.id === answerId) {
+                                return {
+                                    ...a,
+                                    votes: type === "up" ? a.votes + 1 : a.votes - 1
+                                };
+                            }
+                            return a;
+                        })
+                    };
+                }
+                return q;
+            })
+        );
+    };
 
     return (
-        <QuestionsContext.Provider value={{ questions, getQuestionById, addAnswer, addQuestion }}>
+        <QuestionsContext.Provider value={{ questions, getQuestionById, addAnswer, addQuestion, voteQuestion, voteAnswer }}>
             {children}
         </QuestionsContext.Provider>
     );

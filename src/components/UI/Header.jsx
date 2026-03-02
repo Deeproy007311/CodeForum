@@ -31,8 +31,7 @@ export const Navbar = () => {
           <NavLink
             to="/ask"
             className={({ isActive }) =>
-              `flex items-center gap-1 text-subtext hover:text-text transition ${
-                isActive ? "text-accent" : ""
+              `flex items-center gap-1 text-subtext hover:text-text transition ${isActive ? "text-accent" : ""
               }`
             }
           >
@@ -42,9 +41,17 @@ export const Navbar = () => {
 
           <FiBell className="text-lg text-subtext hover:text-text cursor-pointer transition" />
 
-          <div className="w-8 h-8 rounded-full border border-line flex items-center justify-center hover:border-accent transition cursor-pointer">
-            <FiUser className="text-subtext" />
-          </div>
+          <Link to="/profile">
+            <div className="relative w-9 h-9 rounded-full bg-accent/10 border border-line flex items-center justify-center cursor-pointer transition hover:border-accent hover:shadow-md group">
+
+              {/* Icon */}
+              <FiUser className="text-subtext group-hover:text-accent transition text-sm" />
+
+              {/* Online dot (optional premium touch) */}
+              <span className="absolute bottom-0 right-0 w-2.5 h-2.5 bg-green-400 border border-panel rounded-full"></span>
+
+            </div>
+          </Link>
 
         </div>
       </div>
