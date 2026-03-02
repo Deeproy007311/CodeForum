@@ -1,12 +1,14 @@
 import { useState } from "react";
 import { tagsData } from "../../data/tagsData";
 import toast from "react-hot-toast";
+import { useQuestions } from "../../context/QuestionsContext";
 
 export const AskForm = () => {
     const [title, setTitle] = useState("");
     const [description, setDescription] = useState("");
     const [selectedTags, setSelectedTags] = useState([]);
     const [errors, setErrors] = useState({});
+    const { addQuestion } = useQuestions();
 
     const handleTagToggle = (slug) => {
         if (selectedTags.includes(slug)) {
@@ -31,20 +33,18 @@ export const AskForm = () => {
 
         setErrors(newErrors);
 
-        if (Object.keys(newErrors).length > 0) {
-            toast.error("Please fix the errors");
-            return;
-        }
+        if (Object.keys(newErrors).length > 0) return;
 
-        const formData = {
+        const newQuestion = {
             title,
             description,
-            tags: selectedTags,
+            tags: selectedTags
         };
 
-        console.log("Submitted:", formData);
+        // 🔥 ADD TO GLOBAL STORE
+        addQuestion(newQuestion);
 
-        // 🔥 PREMIUM SUCCESS TOAST
+        // toast
         toast.success("Question posted successfully 🚀");
 
         // reset

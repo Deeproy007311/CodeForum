@@ -1,21 +1,10 @@
-import { useEffect, useState } from "react";
 import { QuestionCard } from "../components/questions/QuestionCard";
-import { mockQuestions } from "../data/mockQuestions";
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
+import { useQuestions } from "../context/QuestionsContext";
 
 export const Question = () => {
-  const [questions, setQuestions] = useState([]);
-  const [loading, setLoading] = useState(true);
-
-  useEffect(() => {
-    const timer = setTimeout(() => {
-      setQuestions(mockQuestions);
-      setLoading(false);
-    }, 400);
-
-    return () => clearTimeout(timer);
-  }, []);
+  const { questions } = useQuestions();
 
   // animation variants
   const container = {
@@ -82,8 +71,8 @@ export const Question = () => {
       </div>
 
       {/* FEED */}
-      {loading ? (
-        <p className="text-subtext">Loading questions...</p>
+      {questions.length === 0 ? (
+        <p className="text-subtext">No questions yet. Be the first to ask 🚀</p>
       ) : (
         <motion.div
           variants={container}

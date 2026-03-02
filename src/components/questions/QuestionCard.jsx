@@ -40,7 +40,7 @@ export const QuestionCard = ({ question }) => {
           <div className="flex flex-col items-center text-xs text-subtext group-hover:text-text transition">
             <FiMessageCircle className="text-lg mb-1" />
             <span className="font-semibold text-text text-sm">
-              {question.answers}
+              {question.answers.length}
             </span>
             <span>answers</span>
           </div>
@@ -81,7 +81,7 @@ export const QuestionCard = ({ question }) => {
             {/* Meta */}
             <div className="flex items-center gap-4">
               <span className="group-hover:text-text transition">
-                💬 {question.answers} answers
+                💬 {question.answers.length} answers
               </span>
             </div>
 
